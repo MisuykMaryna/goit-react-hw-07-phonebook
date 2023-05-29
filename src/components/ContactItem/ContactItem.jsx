@@ -1,13 +1,12 @@
 import { useDispatch } from 'react-redux';
 import css from './ContactItem.module.css';
-import PropTypes from 'prop-types';
-import { onDelete } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    dispatch(onDelete(id));
+    dispatch(deleteContact(id));
   }
   return (
     <li className={css.contactItem}>
@@ -19,8 +18,3 @@ export const ContactItem = ({ id, name, number }) => {
   );
 };
 
-ContactItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};

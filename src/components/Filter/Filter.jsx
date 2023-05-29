@@ -1,14 +1,14 @@
 import { useDispatch,useSelector } from 'react-redux';
 import css from './Filter.module.css';
 import { setFilter } from 'redux/filterSlice';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   const ChangeFilter = e => {
     dispatch (setFilter(e.currentTarget.value));
   }
-  const value = useSelector(getFilter);
+  const value = useSelector(selectFilter);
   return (
     <form>
       <label className={css.filter__label}>
